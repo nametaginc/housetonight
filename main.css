@@ -1,0 +1,424 @@
+body {
+    font-family: Alte Haas Grotesk, sans-serif;
+    margin: 0
+}
+body.signed-out .signed-in-only {
+    display: none
+}
+body.signed-in .signed-out-only {
+    display: none
+}
+
+.banner {
+    background: #FF6464;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 11px 10px;
+    justify-content: center;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+.banner > span {
+    padding-right: 15px
+}
+
+.banner > a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-right: 30px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 42px 110px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header > .right.signed-out-only {
+    font-size: 15px;
+    color: rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* In safari the preceeding CSS overrides the default that would normally hide this */
+.signed-in header > .right.signed-out-only {
+    display: none;
+}
+
+header > .right.signed-out-only > span {
+    margin-right: 10px;
+}
+
+header > .right.signed-in-only {
+    font-size: 15px;
+    color: #000000;
+}
+header > .right.signed-in-only > svg {
+    margin-right: 9px;
+}
+header > .right.signed-in-only #signout {
+    margin-left: 32px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 137.1%;
+    text-decoration-line: underline;
+    color: rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+
+
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 72px 42px 0 42px;
+}
+.hero h1 {
+
+    max-width: 800px;
+    font-family: Alte Haas Grotesk, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 82px;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+    margin-bottom: 26.5px;
+}
+
+.hero h2 {
+    margin-top: 26.5px;
+    max-width: 430px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 170%;
+    text-align: center;
+    color: #000000;
+}
+
+.profile {
+    margin: 72px 110px 0 110px;
+}
+.profile h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.profile .box {
+    background: rgba(211, 222, 249, 0.2);
+    border-radius: 10px;
+}
+
+.profile .box > h3 {
+    padding: 23px 25px 23px 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 110%;
+    letter-spacing: 0.09em;
+    color: #27AE60;
+    border-bottom: 1px solid #CBD3ED;
+}
+
+.profile .box .bottom {
+    display: flex;
+    flex-direction: row;
+}
+.profile .box .bottom img {
+    margin: 32px 22px 35px 28px;
+    width: 98px;
+    height: 98px;
+    border-radius: 49px;
+}
+
+.profile .box .bottom .right h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    padding: 0;
+    margin: 37px 22px 15px 0px;
+}
+
+.profile .box .bottom .right .property {
+    display: inline-block;
+
+    background: #EBEFFC;
+    border-radius: 7px;
+
+    padding: 10px 14px 10px 14px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    opacity: 0.7;
+}
+
+.browse-homes {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #000000;
+    margin: 72px 110px 0 110px;
+}
+
+.signed-out .pics {
+    margin-left: -63px;
+    margin-top: 131px;
+    display: flex;
+    flex-direction: row;
+    width: calc(100vw + 48px);
+    overflow-x: hidden;
+}
+
+.signed-out .pics .pic {
+    position: relative;
+    width: 334px;
+    height: 236px;
+    margin: 0 10px 0 10px;
+}
+
+.signed-out .pics .pic img {
+    position: absolute;
+    width: 334px;
+    height: 236px;
+    border-radius: 27px;
+}
+
+.signed-out .pics .pic .background {
+    position: absolute;
+    width: 334px;
+    height: 236px;
+    border-radius: 27px;
+
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 33.33%, rgba(0, 0, 0, 0.7) 81.77%);
+    border-radius: 27px;
+}
+
+.signed-out .pics .pic .text {
+    position: relative;
+    width: 334px;
+    height: 236px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.signed-out .pics .pic .text .hed {
+    margin: 0 22px 8px 22px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.signed-out .pics .pic .text .subhed {
+    margin: 0 0 22px 22px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+
+.signed-out .pics .pic .text .availability {
+    display: none
+}
+
+.signed-in .pics {
+    margin: 0 82px 0 110px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.signed-in .pics .pic {
+    margin-right: 28px;
+    display: inline-block;
+}
+
+.signed-in .pics .pic img {
+    width: calc(50vw - 135px);
+    height: calc((50vw - 135px)/1.5);
+    border-radius: 10px;
+}
+.signed-in .pics .pic .text {
+    margin-top: 23px;
+    margin-bottom: 48px;
+}
+.signed-in .pics .pic .text .hed {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 110%;
+    /* identical to box height, or 31px */
+    letter-spacing: -0.01em;
+
+    color: #121102;
+}
+
+.signed-in .pics .pic .text .subhed {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 110%;
+    /* identical to box height, or 20px */
+    letter-spacing: -0.01em;
+
+    color: #121102;
+
+    opacity: 0.5;
+}
+
+.cta {
+    margin: 53px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #F6F8FE;
+}
+.cta h1 {
+
+    margin: 91px 24px 0 24px;
+    max-width: 609px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 56px;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+.cta p {
+    margin-top: 51px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 170%;
+    text-align: center;
+    color: #000000;
+}
+
+footer {
+    padding: 52px 110px 52px 110px;
+    background: white;
+}
+
+footer > span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 170%;
+    color: #000000;
+    opacity: 0.6;
+}
+
+footer > a {
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #000000;
+    opacity: 0.6;
+}
+
+@media only screen and (max-width: 767px) {
+    .banner {
+        display: block
+    }
+    .banner > span {
+        padding-right: 0
+    }
+
+    header {
+        padding: 42px 40px;
+        flex-direction: column;
+        align-items: start;
+    }
+    header .right {
+        margin-top: 20px
+    }
+
+    header > .right.signed-out-only {
+        flex-direction: column;
+        align-items: center;
+    }
+    header > .right.signed-out-only > span {
+        margin-bottom: 10px;
+    }
+
+    .profile {
+        margin: 0 40px 0 40px;
+    }
+
+    .profile .box .bottom {
+     display: flex;
+     flex-direction: column;
+    }
+    .profile .box .bottom img {
+        margin: 0 20px;
+    }
+    .profile .box .bottom .right {
+        margin: 20px;
+    }
+    .profile .box .bottom .right h4 {
+        margin: 0px 22px 15px 0px;
+    }
+    .profile .box .bottom .right .property {
+        display: block;
+        margin: 15px 0;
+    }
+    .browse-homes {
+        margin: 72px 40px 0 40px;
+    }
+    .signed-in .pics {
+        margin: 0 0px 0 40px;
+        flex-direction: column;
+        flex-wrap: inherit;
+    }
+    .signed-in .pics .pic img {
+        width: calc(100vw - 135px);
+        height: calc((100vw - 135px)/1.5);
+        border-radius: 10px;
+    }
+    .signed-in .pics .pic .text {
+        margin-top: 0
+    }
+    footer {
+        padding: 52px 40px 52px 40px;
+    }
+}
+
