@@ -1,4 +1,4 @@
-# Copyright 2022 Nametag Inc. 
+# Copyright 2022 Nametag Inc.
 # 
 # Use of this source code is governed by an MIT-style
 # license that can be found in the LICENSE file or at
@@ -34,6 +34,7 @@ build-nopkce:
 		sed 's/@@URL@@/https:\/\/$(HOUSETONIGHT_DNS_NAME)/' |\
 		sed 's/@@PKCE@@/false/' |\
 		cat > build-nopkce/index.html
+	go build -o ./build-nopkce/server nopkce.go
 
 .PHONY: run-nopkce
 run-nopkce: build-nopkce
@@ -41,4 +42,4 @@ run-nopkce: build-nopkce
 	NAMETAG_CLIENT_SECRET=$(NAMETAG_CLIENT_SECRET) \
 	NAMETAG_SERVER=https://$(NAMETAG_SERVER_DNS_NAME) \
 	HOUSETONIGHT_URL=https://$(HOUSETONIGHT_DNS_NAME) \
-		go run ./nopkce.go
+		./build-nopkce/server
