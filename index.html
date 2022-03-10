@@ -67,7 +67,7 @@
           data-nametag-server="@@NAMETAG_SERVER@@"
           data-nametag-scopes="login nt:name nt:first_name nt:profile_picture nt:age_over_21"
           data-nametag-state=""
-          data-nametag-pkce="true"
+          data-nametag-pkce="@@PKCE@@"
           data-nametag-button-variant="blue"
         ></div>
       </div>
@@ -271,7 +271,7 @@
         data-nametag-server="@@NAMETAG_SERVER@@"
         data-nametag-scopes="login nt:name nt:first_name nt:profile_picture nt:age_over_21"
         data-nametag-state=""
-        data-nametag-pkce="true"
+        data-nametag-pkce="@@PKCE@@"
         data-nametag-button-variant="blue"
       ></div>
     </div>
@@ -297,10 +297,10 @@
     <script src="@@NAMETAG_SERVER@@/authorize.js"></script>
     <script>
       const nametag = new window.nametag.Auth({
-        ClientID: "@@NAMETAG_CLIENT_ID@@",
-        CallbackURL: window.origin,
+        client_id: "@@NAMETAG_CLIENT_ID@@",
+        redirect_uri: window.origin,
+        server: "@@NAMETAG_SERVER@@",
       });
-      nametag.server = "@@NAMETAG_SERVER@@";
 
       document.querySelector("#signout").addEventListener("click", () => {
         nametag.Signout();

@@ -1,27 +1,40 @@
-HOUSETONIGHT_DNS_NAME := "your-example-site.example.com"
-NAMETAG_CLIENT_ID := "Your-ClientID-from-console.nametag.co-here"
-NAMETAG_SERVER_DNS_NAME := "nametag.co"
 
-NETLIFY := netlify
-ifeq (, $(shell command -v "$(NETLIFY)"))
-	NETLIFY_ERR = $(error install the Netlify CLI with e.g. npm install netlify-cli -g))
-endif
+
+HOUSETONIGHT_DNS_NAME ?= "housetonight.example.com"
+NAMETAG_SERVER_DNS_NAME ?= "nametag.co"
+NAMETAG_CLIENT_ID ?= "your-client-id"
+NAMETAG_CLIENT_SECRET ?= "your-client-secret"
 
 .PHONY: build
 build:
 	[ ! -d build ] || rm -rf build
-	mkdir build
-	cp -r images main.css build
+	mkdir build{,/images}
+	cp images/*.jpg build/images
+	cp main.css build/main.css
 	cat index.html |\
 		sed 's/@@NAMETAG_SERVER@@/https:\/\/$(NAMETAG_SERVER_DNS_NAME)/' |\
 		sed 's/@@NAMETAG_CLIENT_ID@@/$(NAMETAG_CLIENT_ID)/' |\
 		sed 's/@@URL@@/https:\/\/$(HOUSETONIGHT_DNS_NAME)/' |\
+		sed 's/@@PKCE@@/true/' |\
 		cat > build/index.html
 
-.PHONY: deploy
-deploy: build ; $(NETLIFY_ERR)
-	$(NETLIFY) deploy --prod --site "$(HOUSETONIGHT_DNS_NAME)" --dir build
+.PHONY: build-nopkce
+build-nopkce:
+	[ ! -d build-nopkce ] || rm -rf build-nopkce
+	mkdir build-nopkce{,/images}
+	cp images/*.jpg build-nopkce/images
+	cp main.css build-nopkce/main.css
+	cat index.html |\
+		sed 's/@@NAMETAG_SERVER@@/https:\/\/$(NAMETAG_SERVER_DNS_NAME)/' |\
+		sed 's/@@NAMETAG_CLIENT_ID@@/$(NAMETAG_CLIENT_ID)/' |\
+		sed 's/@@URL@@/https:\/\/$(HOUSETONIGHT_DNS_NAME)/' |\
+		sed 's/@@PKCE@@/false/' |\
+		cat > build-nopkce/index.html
 
-.PHONY: destroy
-destroy: ; $(NETLIFY_ERR)
-	$(NETLIFY) sites:delete $(HOUSETONIGHT_DNS_NAME)
+.PHONY: run-nopkce
+run-nopkce: build-nopkce
+	NAMETAG_CLIENT_ID=$(NAMETAG_CLIENT_ID) \
+	NAMETAG_CLIENT_SECRET=$(NAMETAG_CLIENT_SECRET) \
+	NAMETAG_SERVER=https://$(NAMETAG_SERVER_DNS_NAME) \
+	HOUSETONIGHT_URL=https://$(HOUSETONIGHT_DNS_NAME) \
+		go run ./nopkce.go
