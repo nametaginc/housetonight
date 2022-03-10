@@ -1,11 +1,8 @@
 // Copyright 2022 Nametag Inc.
 //
-// All information contained herein is the property of Nametag Inc.. The
-// intellectual and technical concepts contained herein are proprietary, trade
-// secrets, and/or confidential to Nametag, Inc. and may be covered by U.S.
-// and Foreign Patents, patents in process, and are protected by trade secret or
-// copyright law. Reproduction or distribution, in whole or in part, is
-// forbidden except by express written permission of Nametag, Inc.
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file or at
+// https://opensource.org/licenses/MIT.
 
 package main
 
