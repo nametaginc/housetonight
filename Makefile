@@ -1,4 +1,8 @@
-
+# Copyright 2022 Nametag Inc. 
+# 
+# Use of this source code is governed by an MIT-style
+# license that can be found in the LICENSE file or at
+# https://opensource.org/licenses/MIT.
 
 HOUSETONIGHT_DNS_NAME ?= "housetonight.example.com"
 NAMETAG_SERVER_DNS_NAME ?= "nametag.co"
