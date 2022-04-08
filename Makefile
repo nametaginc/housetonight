@@ -12,7 +12,7 @@ NAMETAG_CLIENT_SECRET ?= "your-client-secret"
 .PHONY: build
 build:
 	[ ! -d build ] || rm -rf build
-	mkdir build{,/images}
+	mkdir build build/images
 	cp images/*.jpg build/images
 	cp main.css build/main.css
 	cat index.html |\
@@ -25,7 +25,7 @@ build:
 .PHONY: build-nopkce
 build-nopkce:
 	[ ! -d build-nopkce ] || rm -rf build-nopkce
-	mkdir build-nopkce{,/images}
+	mkdir build-nopkce build-nopkce/images
 	cp images/*.jpg build-nopkce/images
 	cp main.css build-nopkce/main.css
 	cat index.html |\
